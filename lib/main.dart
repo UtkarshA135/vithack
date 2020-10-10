@@ -1,3 +1,5 @@
+import 'package:certificate_generator/cert/vc_view.dart';
+import 'package:certificate_generator/screens/splash.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -47,8 +49,8 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: {
-        '/': (context) => HomeScreen(),
-        '/result': (context) => ResultScreen(),
+        '/': (context) => SplashScreen(),
+        '/result': (context) => Cert(),
         '/viewer': (context) => ViewerScreen(),
       },
       initialRoute: '/',

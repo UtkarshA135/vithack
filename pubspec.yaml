@@ -18,7 +18,12 @@ dependencies:
   share_extend: # sharing files
   provider: # state-management
   printing: # using image assets in pdf generation
-
+  open_file: ^3.0.1
+  flutter_local_notifications: ^2.0.0+1
+  screenshot: ^0.2.0
+  firebase_core:
+  firebase_auth: ^0.14.0+5
+  firebase_dynamic_links: ^0.5.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -27,3 +32,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/account.png
+    - assets/images/temp.png
+    - assets/images/cert.jpeg

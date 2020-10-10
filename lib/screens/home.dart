@@ -1,16 +1,16 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-
 import 'package:file_picker/file_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:share_extend/share_extend.dart';
 import 'package:spreadsheet_decoder/spreadsheet_decoder.dart';
-
 import 'package:certificate_generator/providers/home.dart';
 import 'package:certificate_generator/utils/commons.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 
 class HomeScreen extends StatelessWidget {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(
@@ -18,6 +18,32 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.deepPurple[400],
         appBar: AppBar(
           title: Text('Holden'),
+          actions: <Widget>[
+          Builder(builder: (BuildContext context) {
+//5
+            return FlatButton(
+              child: const Text('Sign out'),
+              textColor: Theme
+                  .of(context)
+                  .buttonColor,
+              onPressed: () async {
+                final FirebaseUser user = await _auth.currentUser();
+                if (user == null) {
+//6
+                  Scaffold.of(context).showSnackBar(const SnackBar(
+                    content: Text('No one has signed in.'),
+                  ));
+                  return;
+                }
+                await _auth.signOut();
+                final String uid = user.uid;
+                Scaffold.of(context).showSnackBar(SnackBar(
+                  content: Text(uid + ' has successfully signed out.'),
+                ));
+              },
+            );
+          })
+        ],
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
