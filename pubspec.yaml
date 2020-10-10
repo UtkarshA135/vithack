@@ -13,7 +13,7 @@ dependencies:
   path_provider: # reading/writing files in application document directory
   file_picker: # using local files from device
   pdf_viewer_plugin: # viewing pdf files
-  pdf: # generating pdf file
+  pdf:
   permission_handler: # handling runtime permissions
   share_extend: # sharing files
   provider: # state-management
@@ -24,6 +24,10 @@ dependencies:
   firebase_core:
   firebase_auth: ^0.14.0+5
   firebase_dynamic_links: ^0.5.1
+  firebase_storage: ^3.0.3
+  qr_flutter:
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -34,3 +38,4 @@ flutter:
     - assets/images/account.png
     - assets/images/temp.png
     - assets/images/cert.jpeg
+    - assets/
