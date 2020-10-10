@@ -1,6 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:global_cert/main.dart';
+import 'package:global_cert/forgot.dart';
+import 'package:global_cert/register.dart';
+
+
+//import 'package:global_cert/main.dart';
 
 class Login extends StatelessWidget {
   @override
@@ -92,7 +96,12 @@ class Login extends StatelessWidget {
                 height: 20.0,
               ),
               MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Forgot()),
+                  );
+                },
                 minWidth: MediaQuery.of(context).size.width,
                 color: Colors.black,
                 height: MediaQuery.of(context).size.height / 18,
@@ -106,12 +115,13 @@ class Login extends StatelessWidget {
                   ),
                 ),
               ),
-             
               MaterialButton(
-                onPressed: () { Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => Register()),
-  );},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Register()),
+                  );
+                },
                 minWidth: MediaQuery.of(context).size.width,
                 color: Colors.black,
                 height: MediaQuery.of(context).size.height / 18,
@@ -132,4 +142,3 @@ class Login extends StatelessWidget {
     );
   }
 }
-
