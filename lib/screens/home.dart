@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:alan_voice/alan_voice.dart';
+
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:provider/provider.dart';
@@ -23,9 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
 @override
   void initState() {
     // TODO: implement initState
-    AlanVoice.addButton("9c9c3e8d917e96cca20b9fc7f80609482e956eca572e1d8b807a3e2338fdd0dc/stage",
-    buttonAlign: AlanVoice.BUTTON_ALIGN_LEFT,
-    );
+  
     super.initState();
 
   }

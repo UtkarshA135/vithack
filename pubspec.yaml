@@ -20,7 +20,7 @@ dependencies:
   provider: # state-management
   printing: # using image assets in pdf generation
   open_file: ^3.0.1
-  alan_voice: 
+
   firebase_storage: 
   flutter_local_notifications: 
   screenshot: ^0.2.0
