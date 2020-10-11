@@ -10,10 +10,6 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import '../share.dart';
 
 class Cert2 extends StatefulWidget {
-  String name;
-  String rank;
-  String project;
-  Cert2({Key key, @required this.name,@required this.rank,@required this.project}) : super(key: key);
 
   @override
   _Cert2State createState() => _Cert2State();
@@ -44,6 +40,12 @@ class _Cert2State extends State<Cert2> {
   ScreenshotController screenshotController = ScreenshotController();
   @override
   Widget build(BuildContext context) {
+         String name = (ModalRoute.of(context).settings.arguments
+        as Map<String, dynamic>)['result'][0];
+        String country = (ModalRoute.of(context).settings.arguments
+        as Map<String, dynamic>)['result'][3];
+               String rank = (ModalRoute.of(context).settings.arguments
+        as Map<String, dynamic>)['result'][2];
     return Scaffold(
       appBar: AppBar(
         title: Text('Certificate'),
@@ -98,21 +100,21 @@ class _Cert2State extends State<Cert2> {
                               SizedBox(height: MediaQuery.of(context).size.height/20),
                               Padding(
                                 padding: const EdgeInsets.only(left: 16),
-                                child: Text(widget.name,
+                                child: Text(name,
                                   style: TextStyle(fontSize: 25,color: Colors.indigo[400] ,fontWeight: FontWeight.bold),
                                 ),
                               ),
                               SizedBox(height: MediaQuery.of(context).size.height/55),
                               Padding(
                                 padding: const EdgeInsets.only(right: 70),
-                                child: Text(widget.rank,
+                                child: Text(rank,
                                   style: TextStyle(fontSize: 8,color: Colors.black),
                                 ),
                               ),
                               SizedBox(height: MediaQuery.of(context).size.height/60),
                               Padding(
                                 padding: const EdgeInsets.only(left: 40),
-                                child: Text(widget.project,
+                                child: Text(country,
                                   style: TextStyle(fontSize: 10,color: Colors.black),
                                 ),
                               ),

@@ -10,10 +10,6 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import '../share.dart';
 
 class Cert extends StatefulWidget {
-  String name;
-  String rank;
-  String project;
-  Cert({Key key, @required this.name,@required this.rank,@required this.project}) : super(key: key);
 
   @override
   _CertState createState() => _CertState();
@@ -44,6 +40,12 @@ class _CertState extends State<Cert> {
   ScreenshotController screenshotController = ScreenshotController();
   @override
   Widget build(BuildContext context) {
+     String name = (ModalRoute.of(context).settings.arguments
+        as Map<String, dynamic>)['result'][0];
+        String country = (ModalRoute.of(context).settings.arguments
+        as Map<String, dynamic>)['result'][3];
+               String rank = (ModalRoute.of(context).settings.arguments
+        as Map<String, dynamic>)['result'][2];
     return Scaffold(
       appBar: AppBar(
         title: Text('Certificate'),
@@ -98,7 +100,7 @@ class _CertState extends State<Cert> {
                             SizedBox(height: MediaQuery.of(context).size.height/50),
                             Padding(
                               padding: const EdgeInsets.only(left: 16),
-                              child: Text(widget.name,
+                              child: Text(name,
                                 style: TextStyle(fontSize: 25,color: Colors.redAccent ,fontWeight: FontWeight.bold),
                               ),
                             ),
@@ -107,13 +109,13 @@ class _CertState extends State<Cert> {
                               children: <Widget>[
                                 Padding(
                                   padding: const EdgeInsets.only(left: 85),
-                                  child: Text(widget.rank,
+                                  child: Text(country,
                                     style: TextStyle(fontSize: 10,color: Colors.black),
                                   ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(left: 40),
-                                  child: Text(widget.project,
+                                  child: Text(rank,
                                     style: TextStyle(fontSize: 10,color: Colors.black),
                                   ),
                                 ),

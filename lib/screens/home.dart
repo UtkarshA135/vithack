@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:alan_voice/alan_voice.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:provider/provider.dart';
@@ -8,24 +9,114 @@ import 'package:certificate_generator/providers/home.dart';
 import 'package:certificate_generator/utils/commons.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
+import 'package:certificate_generator/cert/cert/cert.dart';
+import 'package:certificate_generator/cert/cert/cert2.dart';
+import 'package:certificate_generator/cert/cert/cert3.dart';
+import 'package:certificate_generator/cert/cert/cert4.dart';
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
 
-class HomeScreen extends StatelessWidget {
+class _HomeScreenState extends State<HomeScreen> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+@override
+  void initState() {
+    // TODO: implement initState
+    AlanVoice.addButton("9c9c3e8d917e96cca20b9fc7f80609482e956eca572e1d8b807a3e2338fdd0dc/stage",
+    buttonAlign: AlanVoice.BUTTON_ALIGN_LEFT,
+    );
+    super.initState();
+
+  }
   @override
   Widget build(BuildContext context) {
+     void showPreviewDialog(List<dynamic> s) {
+    showDialog<void>(
+      context: context,
+      builder: (BuildContext ctx) => GestureDetector(
+        onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => HomeScreen())),
+        child: Container(
+            color: Colors.transparent,
+            child: Padding(
+                padding: const EdgeInsets.fromLTRB(40,100,40,100),
+                child: Column(
+                  children: <Widget>[
+                    Card(color: Colors.black54,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Select Template',style: TextStyle(color: Colors.white,fontSize: 20),),
+                      ),
+                    ),
+                    Expanded(
+                      child: GridView.count(
+                        crossAxisCount: 2,
+                        children: <Widget>[
+                          GestureDetector(
+                            child: Card(color: Colors.white,
+                                child: Image.asset('assets/cert1.png')
+                            ),
+                            onTap: (){
+                               
+                                                              Navigator.pushNamed(context, '/cert',
+                                                                       arguments: {'result': s});
+                            },
+                          ),
+                          GestureDetector(
+                            child: Card(color: Colors.white,
+                                child: Image.asset('assets/cert2.png')
+                            ),
+                            onTap: (){
+                            
+                                                              Navigator.pushNamed(context, '/cert1',
+                                                                       arguments: {'result': s});
+                            },
+                          ),
+                          GestureDetector(
+                            child: Card(color: Colors.white,
+                                child: Image.asset('assets/cert3.png')
+                            ),
+                            onTap: (){
+                             
+                                                              Navigator.pushNamed(context, '/cert2',
+                                                                       arguments: {'result': s});
+                            },
+                          ),
+                          GestureDetector(
+                            child: Card(color: Colors.white,
+                                child: Image.asset('assets/cert4.png')
+                            ),
+                            onTap: (){
+                               Navigator.pushNamed(context, '/cert3',
+                                                                       arguments: {'result': s});
+                            },
+                          ),
+
+                        ],
+                      ),
+                    ),
+                  ],
+                )
+            )
+        ),
+
+      ),
+    );
+     }
     return Consumer<HomeProvider>(
       builder: (_, homeProvider, __) => Scaffold(
-        backgroundColor: Colors.deepPurple[400],
+        backgroundColor: Colors.grey[350],
         appBar: AppBar(
-          title: Text('Holden'),
+          
+          title: Text('Cert-Maker'),
           actions: <Widget>[
           Builder(builder: (BuildContext context) {
 //5
-            return FlatButton(
-              child: const Text('Sign out'),
-              textColor: Theme
-                  .of(context)
-                  .buttonColor,
+            return IconButton(
+              icon: Icon(Icons.exit_to_app),
               onPressed: () async {
                 final FirebaseUser user = await _auth.currentUser();
                 if (user == null) {
@@ -44,7 +135,7 @@ class HomeScreen extends StatelessWidget {
             );
           })
         ],
-          elevation: 0,
+          elevation: 4.0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               bottomRight: Radius.circular(50),
@@ -113,13 +204,7 @@ class HomeScreen extends StatelessWidget {
                     child: Icon(Icons.share),
                   )
                 : Container(),
-            SizedBox(
-              height: 30,
-            ),
-            FloatingActionButton(
-              onPressed: () {},
-              child: Icon(Icons.insert_link),
-            ),
+          
             SizedBox(
               height: 30,
             ),
@@ -129,6 +214,7 @@ class HomeScreen extends StatelessWidget {
                 homeProvider.xlsxFilePath = await FilePicker.getFilePath(
                   type: FileType.CUSTOM,
                   fileExtension: 'xlsx',
+                  
                 );
                 homeProvider.xlsxFileTables = SpreadsheetDecoder.decodeBytes(
                         File(homeProvider.xlsxFilePath).readAsBytesSync())
@@ -153,14 +239,14 @@ class HomeScreen extends StatelessWidget {
                             children: <Widget>[
                               Container(
                                 decoration: BoxDecoration(
-                                  color: Colors.transparent.withOpacity(0.1),
-                                  borderRadius: BorderRadius.circular(50),
+                                  color: Colors.grey[100],
+                                  borderRadius: BorderRadius.circular(30),
                                 ),
                                 child: ListTile(
                                   subtitle: Text(
                                     'Tap to view more',
                                     style: TextStyle(
-                                      color: Colors.white60,
+                                      color: Colors.black,
                                     ),
                                   ),
                                   trailing: FutureBuilder(
@@ -177,11 +263,11 @@ class HomeScreen extends StatelessWidget {
                                                       .existsSync()
                                                   ? Icon(
                                                       Icons.check,
-                                                      color: Colors.white70,
+                                                      color: Colors.black,
                                                     )
                                                   : Icon(
                                                       Icons.file_download,
-                                                      color: Colors.white70,
+                                                      color: Colors.black,
                                                     ),
                                         );
                                       }
@@ -190,8 +276,8 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                   contentPadding: EdgeInsets.all(16),
                                   onTap: () {
-                                    Navigator.pushNamed(context, '/result',
-                                        arguments: {'result': value});
+
+                              showPreviewDialog(value);
                                   },
                                   leading: Container(
                                     width: 40,
@@ -209,7 +295,7 @@ class HomeScreen extends StatelessWidget {
                                   title: Text(
                                     value[0],
                                     style: TextStyle(
-                                      color: Colors.white70,
+                                      color: Colors.black,
                                       fontWeight: FontWeight.w700,
                                     ),
                                   ),
@@ -226,7 +312,7 @@ class HomeScreen extends StatelessWidget {
               : Center(
                   child: Text(
                     'Click FAB to read xlsx',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.black),
                   ),
                 ),
         ),

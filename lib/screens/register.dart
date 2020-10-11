@@ -33,6 +33,7 @@ void _register() async {
       _success = true;
       _userEmail = user.email;
     });
+      await user.sendEmailVerification();
    await Navigator.push(
     context,
     MaterialPageRoute(builder: (context) => Login()),
@@ -46,7 +47,7 @@ void _register() async {
   @override
   Widget build(BuildContext context) {
    return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       body: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -54,14 +55,38 @@ void _register() async {
                   mainAxisAlignment: MainAxisAlignment.center,
 
           children: <Widget>[
-            
+             Padding(padding: EdgeInsets.only(top: 80.0)),
+                   Row(
+               children: <Widget>[
+    Expanded(
+          child: Image(
+        height: 80.0,
+        image: AssetImage("assets/logo2.jpg"),
+      
+      ),
+    ),
+  
+    
+                  Expanded(
+                    flex: 2,
+                                    child: Text("CERT-MAKER",
+                    
+                      style: TextStyle(
+                        fontSize: 30.0,
+                        fontWeight: FontWeight.bold
+                      ),
+                      ),
+                  ),
+  ],
+),
+       SizedBox(height: 30.0,),
        
           Center(
             child: Container(
                  padding: EdgeInsets.symmetric(horizontal: 20.0,vertical: 20.0),
-                 height: 0.5*MediaQuery.of(context).size.height,
+                 height: 0.4*MediaQuery.of(context).size.height,
                  decoration: BoxDecoration(
-                   color: Colors.white,
+                   color: Colors.grey[100],
                    borderRadius: BorderRadius.circular(10.0),
                  ),
                 
@@ -95,8 +120,9 @@ void _register() async {
                         ),
                        ),
                      ),
-                     SizedBox(height: 30.0,),
+                     SizedBox(height: 20.0,),
                      TextFormField(
+                         obscureText:true,
                        controller: _passwordController,
                        decoration: InputDecoration(
                         prefixIcon: Icon(Icons.lock,
@@ -108,13 +134,13 @@ void _register() async {
                         ),
                        ),
                      ),
-                     SizedBox(height: 30.0,),
+                     SizedBox(height: 20.0,),
                      MaterialButton(onPressed: (){
                           if (_formKey.currentState.validate()) {
                   _register();
                      }},
                     minWidth: MediaQuery.of(context).size.width,
-                     color: Colors.amber,
+                     color: Colors.deepPurple[200],
                     height: MediaQuery.of(context).size.height/12,
                     child: Text("Register",
                     style: TextStyle(

@@ -14,7 +14,7 @@ class _ForgotState extends State<Forgot> {
     bool loading = false;
     final FirebaseAuth _auth = FirebaseAuth.instance;
     return Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
       body: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -29,7 +29,7 @@ class _ForgotState extends State<Forgot> {
                  padding: EdgeInsets.symmetric(horizontal: 20.0,vertical: 20.0),
                  height: 0.5*MediaQuery.of(context).size.height,
                  decoration: BoxDecoration(
-                   color: Colors.white,
+                   color: Colors.grey[100],
                    borderRadius: BorderRadius.circular(10.0),
                  ),
 
@@ -90,7 +90,7 @@ class _ForgotState extends State<Forgot> {
                       });}},
                     minWidth: MediaQuery.of(context).size.width,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                     color: Colors.amber,
+                     color: Colors.deepPurple[200],
                     height: MediaQuery.of(context).size.height/12,
                     child: Text("Reset",
                     style: TextStyle(

@@ -38,12 +38,14 @@ class StartState extends State<SplashScreen> {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
-    return Scaffold(backgroundColor: Colors.black,
+    return Scaffold(backgroundColor: Colors.white,
         body: Center(
           child: Container(height: height/2,width: width/1.2,
+          
             decoration: BoxDecoration(
+              
               image: DecorationImage(
-                image: AssetImage("assets/images/cert.jpeg"),
+                image: AssetImage("assets/splash.gif"),
                 fit: BoxFit.cover,
               ),
             ),
