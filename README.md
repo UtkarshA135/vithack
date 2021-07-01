@@ -15,8 +15,8 @@ We made it for GlobalCert , but it could be a handy application for all those or
 Later we also wish to integrate Block Chain and using Smart contract we wish to make it more secure .
 
 ## Screenshots -
-![Logo](https://github.com/UtkarshA135/vithack/blob/master/screenshots/WhatsApp%20Image%202020-10-11%20at%2012.10.33%20(1).jpeg)
-![Login](https://github.com/UtkarshA135/vithack/blob/master/screenshots/WhatsApp%20Image%202020-10-11%20at%2012.10.32%20(1).jpeg)
-![register](https://github.com/UtkarshA135/vithack/blob/master/screenshots/WhatsApp%20Image%202020-10-11%20at%2012.10.33.jpeg)
-![Forget Pass](https://github.com/UtkarshA135/vithack/blob/master/screenshots/WhatsApp%20Image%202020-10-11%20at%2012.10.32.jpeg)
-![Dashboard](https://github.com/UtkarshA135/vithack/blob/master/screenshots/WhatsApp%20Image%202020-10-11%20at%2012.10.33%20(2).jpeg)
+<img src="https://github.com/UtkarshA135/vithack/blob/master/screenshots/WhatsApp%20Image%202020-10-11%20at%2012.10.33%20(1).jpeg" width="250" title="hover text">
+<img src="https://github.com/UtkarshA135/vithack/blob/master/screenshots/WhatsApp%20Image%202020-10-11%20at%2012.10.32%20(1).jpeg" width="250" title="hover text">
+<img src="https://github.com/UtkarshA135/vithack/blob/master/screenshots/WhatsApp%20Image%202020-10-11%20at%2012.10.33.jpeg" width="250" title="hover text">
+<img src="https://github.com/UtkarshA135/vithack/blob/master/screenshots/WhatsApp%20Image%202020-10-11%20at%2012.10.32.jpeg" width="250" title="hover text">
+<img src="https://github.com/UtkarshA135/vithack/blob/master/screenshots/WhatsApp%20Image%202020-10-11%20at%2012.10.33%20(2).jpeg" width="250" title="hover text">
